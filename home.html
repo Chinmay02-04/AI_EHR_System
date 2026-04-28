@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>AI EHR System</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<style>
+
+
+
+/* NAVBAR (light but matching theme) */
+.navbar-custom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 60px;
+    background: transparent;   /* no white */
+}
+
+.navbar-custom a {
+    color: white;
+    margin-left: 20px;
+    text-decoration: none;
+}
+
+.navbar-custom a:hover {
+    color: #00d4ff;
+}
+
+/* MAIN CONTAINER */
+.main-container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 80px 20px;
+}
+
+/* SIDE LAYOUT */
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+/* TEXT */
+.hero-text h1 {
+    font-size: 38px;
+    color: white;
+}
+
+.hero-text p {
+    margin-top: 15px;
+    color: #ccc;
+}
+
+/* IMAGE */
+.hero-image img {
+    width: 100%;
+    max-width: 420px;
+}
+
+/* BUTTON */
+.btn-custom {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background: #00d4ff;
+    border: none;
+    border-radius: 8px;
+    color: black;
+}
+</style>
+
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<div class="navbar-custom">
+    <h4>🏥 AI EHR</h4>
+    <div>
+        <a href="/">Home</a>
+        <a href="/login">Login</a>
+        <a href="/about">About</a>
+    </div>
+</div>
+
+<!-- CENTERED CONTENT -->
+<div class="main-container">
+
+    <div class="hero">
+
+        <!-- LEFT TEXT -->
+        <div class="hero-text">
+            <h1>
+                AI Driven Electronic Health Record Management System
+            </h1>
+
+            <p>
+                A smart system to store and manage medical records, extract key information from reports, and simplify appointment scheduling - making healthcare more organized and accessible.
+            </p>
+
+            <a href="/login">
+                <button class="btn-custom">Access System</button>
+            </a>
+        </div>
+
+        <!-- RIGHT IMAGE -->
+        <div class="hero-image">
+            <img src="{{ url_for('static', filename='ehr.png') }}" alt="EHR">
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>

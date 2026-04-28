@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Login</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+
+/* BACKGROUND SAME AS HOME */
+body{
+    margin:0;
+    font-family:'Poppins',sans-serif;
+    background: linear-gradient(135deg, #1f2a48, #0b0f1a);
+    color:white;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+}
+
+/* CONTAINER */
+.container-box{
+    text-align:center;
+}
+
+/* ROLE BUTTONS */
+.option-btn{
+    padding:12px 25px;
+    margin:10px;
+    font-size:16px;
+    border:none;
+    border-radius:8px;
+    background:rgba(255,255,255,0.1);
+    color:white;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.option-btn:hover{
+    background:#00d4ff;
+    color:black;
+}
+
+/* LOGIN BOX (GLASS EFFECT) */
+.login-box{
+    width:350px;
+    margin:auto;
+    margin-top:20px;
+    padding:25px;
+    background:rgba(255,255,255,0.08);
+    backdrop-filter: blur(10px);
+    border-radius:15px;
+    display:none;
+}
+
+/* INPUTS */
+input{
+    width:100%;
+    padding:10px;
+    margin:10px 0;
+    border-radius:8px;
+    border:none;
+    background:rgba(255,255,255,0.1);
+    color:white;
+}
+
+input::placeholder{
+    color:#ccc;
+}
+
+/* BUTTON */
+.login-btn{
+    width:100%;
+    padding:10px;
+    background:#00d4ff;
+    border:none;
+    color:black;
+    border-radius:8px;
+}
+
+a{
+    color:#ccc;
+    text-decoration:none;
+}
+
+</style>
+
+<script>
+function showLogin(role){
+    document.getElementById("loginBox").style.display="block";
+    document.getElementById("roleInput").value = role;
+    document.getElementById("roleTitle").innerText = role.toUpperCase() + " LOGIN";
+}
+</script>
+
+</head>
+
+<body>
+
+<div class="container-box">
+
+    <h2 class="mb-4">🏥 Healthcare Login</h2>
+
+    <button class="option-btn" onclick="showLogin('patient')">Patient</button>
+    <button class="option-btn" onclick="showLogin('doctor')">Doctor</button>
+
+    <div class="login-box" id="loginBox">
+
+        <h4 id="roleTitle"></h4>
+
+        <form method="POST" action="/login">
+
+            <input type="hidden" name="role" id="roleInput">
+
+            <input type="text" name="username" placeholder="Username" required>
+
+            <input type="password" name="password" placeholder="Password" required>
+
+            <button class="login-btn" type="submit">Login</button>
+
+            <a href="/signup" class="d-block mt-3">Create Account</a>
+            <a href="/" class="d-block mt-2">⬅ Back to Home</a>
+
+        </form>
+
+    </div>
+
+</div>
+
+</body>
+</html>

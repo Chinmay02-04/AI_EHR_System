@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Patient Details</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+
+/* BACKGROUND */
+body{
+    margin:0;
+    font-family:'Poppins',sans-serif;
+    background: linear-gradient(135deg, #1f2a48, #0b0f1a);
+    color:white;
+}
+
+/* MAIN CARD */
+.box {
+    max-width: 900px;
+    margin: 60px auto;
+    background: rgba(255,255,255,0.08);
+    border-radius: 15px;
+    padding: 25px;
+    backdrop-filter: blur(10px);
+}
+
+/* HEADER */
+.header {
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:20px;
+}
+
+/* SECTION TITLE */
+.section-title {
+    font-weight: 600;
+    margin: 25px 0 10px;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+    padding-bottom: 5px;
+}
+
+/* INFO SECTION */
+.info-box {
+    margin-bottom: 15px;
+}
+
+/* BUTTON */
+.btn-custom {
+    border-radius: 20px;
+    padding: 5px 15px;
+}
+
+/* TABLE */
+.table {
+    color:white;
+}
+
+.table th {
+    color:#ccc;
+}
+
+/* BADGES */
+.badge-status {
+    padding: 6px 10px;
+    border-radius: 10px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="box">
+
+    <!-- HEADER -->
+    <div class="header">
+        <h3>🧑‍⚕️ Patient Profile</h3>
+        <a href="/patients" class="btn btn-outline-light">Back</a>
+    </div>
+
+    <!-- PATIENT INFO -->
+    <div class="info-box">
+        {% if patient %}
+    <p><b>Name:</b> {{ patient[0] }}</p>
+    <p><b>Phone:</b> {{ patient[1] if patient[1] else "Not Provided" }}</p>
+    <p><b>DOB:</b> {{ patient[2] if patient[2] else "Not Provided" }}</p>
+{% else %}
+    <p>No patient data found</p>
+{% endif %}
+    </div>
+<div class="info-box">
+    <b>Report:</b><br>
+
+    {% if patient[3] %}
+        <a href="{{ url_for('uploaded_file', filename=patient[3]) }}" 
+           target="_blank"
+           class="btn btn-info btn-sm btn-custom mt-2">
+            View Report
+        </a>
+    {% else %}
+        <p class="text-muted mt-2">No report uploaded</p>
+    {% endif %}
+</div>
+
+<div class="info-box">
+    <b>Summary:</b>
+    <p class="mt-2 text-light">{{ patient[4] }}</p>
+</div>
+
+    <!-- APPOINTMENTS -->
+    <h5 class="section-title">📅 Appointment Details</h5>
+
+    <table class="table table-hover text-center align-middle">
+
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+
+        <tbody>
+        {% for a in appointments %}
+            <tr>
+                <td>{{ a[0] }}</td>
+                <td>{{ a[1] }}</td>
+                <td>
+                    {% if a[2] == "Completed" %}
+                        <span class="badge bg-success badge-status">Completed</span>
+                    {% elif a[2] == "Approved" %}
+                        <span class="badge bg-primary badge-status">Approved</span>
+                    {% else %}
+                        <span class="badge bg-warning text-dark badge-status">Pending</span>
+                    {% endif %}
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+
+    </table>
+
+</div>
+
+</body>
+</html>

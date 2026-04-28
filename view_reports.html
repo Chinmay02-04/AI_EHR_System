@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Patient Reports</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="container mt-5">
+
+    <h2 class="mb-4">🧾 Patient Medical Reports</h2>
+
+    <div class="card p-3">
+        <table class="table table-hover">
+
+            <thead class="table-dark">
+                <tr>
+                    <th>Name</th>
+                    <th>Report</th>
+                    <th>Doctor Summary</th>
+                    <th>Add Summary</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for row in data %}
+                <tr>
+
+                    <!-- NAME -->
+                    <td>{{row[0]}}</td>
+
+                    <!-- REPORT -->
+                    <td>
+                        {% if row[3] %}
+                            <a href="{{ url_for('uploaded_file', filename=row[3]) }}" 
+                               target="_blank" 
+                               class="btn btn-sm btn-primary">
+                                View Report
+                            </a>
+                        {% else %}
+                            <span class="text-muted">No Report</span>
+                        {% endif %}
+                    </td>
+
+                    <!-- SUMMARY -->
+                    <td>
+                        {% if row[4] %}
+                            <pre style="white-space: pre-wrap;">{{row[4]}}</pre>
+                        {% else %}
+                            <span class="badge bg-warning text-dark">Pending</span>
+                        {% endif %}
+                    </td>
+
+                    <!-- ADD SUMMARY -->
+                    <td>
+                        <form action="/add_summary" method="POST">
+                            <input type="hidden" name="name" value="{{ row[0] }}">
+                            <textarea name="summary" class="form-control mb-2" required></textarea>
+                            <button type="submit" class="btn btn-primary btn-sm">Submit</button>
+                        </form>
+                    </td>
+
+                </tr>
+                {% endfor %}
+            </tbody>
+
+        </table>
+    </div>
+
+    <a href="/doctor" class="btn btn-secondary mt-3">Back</a>
+
+</div>
+
+</body>
+</html>
