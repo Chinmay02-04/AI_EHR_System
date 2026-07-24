@@ -18,20 +18,20 @@ The system also provides role-based authentication for patients and doctors, cen
 💾 Secure Data Storage using SQLite
 
 # 🛠️ Tech Stack
-Frontend
-HTML
-CSS
-Bootstrap
-Backend
-Python
-Flask
+1. Frontend
+2. HTML
+3. CSS
+4. Bootstrap
+5. Backend
+6. Python
+7. Flask
 # Database
 SQLite
 # Libraries & Tools
-Tesseract OCR
-PyPDF2
-Pillow (PIL)
-Regular Expressions (Regex)
+1. Tesseract OCR
+2. PyPDF2
+3. Pillow (PIL)
+4. Regular Expressions (Regex)
 
 # ⚙️ Project Workflow
 1. User registers as a Patient or Doctor.
