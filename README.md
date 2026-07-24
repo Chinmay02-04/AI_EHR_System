@@ -55,8 +55,31 @@ cd AI_EHR_System
 3. Install dependencies
 pip install -r requirements.txt
 
-4. Run the application
-python app.py
+# 📸 Application Screenshots
 
-5. Open your browser
-http://127.0.0.1:5000
+## 🏠 Home Page
+![Home Page](screenshots/Home%20Page.jpg)
+
+## ℹ️ About Page
+![About Page](screenshots/About%20Page.jpg)
+
+## 🔐 Account Creation and Login Page
+![Account Creation and Login Page](screenshots/Account%20Creation%20and%20Login%20Page.jpg)
+
+## 👤 Patient Profile Page
+![Patient Profile Page](screenshots/Patient%20Profile%20Page.jpg)
+
+## 👨‍⚕️ Doctor Profile Page
+![Doctor Profile Page](screenshots/Doctor%20Profile%20Page.jpg)
+
+## 📄 Medical Report Upload Page
+![Medical Report Upload Page](screenshots/Medical%20Report%20Upload%20Page.jpg)
+
+## 📊 Prediction Page
+![Prediction Page](screenshots/Prediction%20Page.jpg)
+
+## 📅 Appointments Page
+![Appointments Page](screenshots/Appointments%20Page.jpg)
+
+## 📋 Patient Details Page
+![Patient Details Page](screenshots/Patient%20Details%20Page.jpg)
